@@ -20,42 +20,27 @@ document.addEventListener("DOMContentLoaded", function() {
             date
         };
 
-        // Create a table and populate it with the booking details
-        const table = document.createElement("table");
-        table.innerHTML = `
-            <tr>
-                <th>Field</th>
-                <th>Value</th>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>${name}</td>
-            </tr>
-            <tr>
-                <td>Mobile No</td>
-                <td>${mobno}</td>
-            </tr>
-            <tr>
-                <td>From City</td>
-                <td>${from}</td>
-            </tr>
-            <tr>
-                <td>To City</td>
-                <td>${to}</td>
-            </tr>
-            <tr>
-                <td>Passenger</td>
-                <td>${passan}</td>
-            </tr>
-            <tr>
-                <td>Departure Date</td>
-                <td>${date}</td>
-            </tr>
+        const resultPage = window.open("", "_blank");
+
+        const resultHTML = `
+            <html>
+            <head>
+                <title>Flight Booking Result</title>
+            </head>
+            <body>
+                <h1>Booking Details</h1>
+                <p><strong>Name :</strong> ${name}</p>
+                <p><strong>Mobno :</strong> ${mobno}</p>
+                <p><strong>From :</strong> ${from}</p>
+                <p><strong>To :</strong> ${to}</p>
+                <p><strong>Passan :</strong> ${passan}</p>
+                <p><strong>Date :</strong> ${date}</p>
+            </body>
+            </html>
         `;
 
-        // Append the table to the "booking-details" div
-        const bookingDetails = document.getElementById("booking-details");
-        bookingDetails.innerHTML = "";
-        bookingDetails.appendChild(table);
+        resultPage.document.open();
+        resultPage.document.write(resultHTML);
+        resultPage.document.close();
     });
 });
